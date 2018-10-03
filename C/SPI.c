@@ -13,7 +13,7 @@ int main(){
 		printf("Couldn't initialize\n");
 		return SETUP_ERROR;
 	}
-	PinMode(12, OUTPUT);
+	pinMode(12, OUTPUT);
 
 	while(1){
 		//delay() based on milisecond
