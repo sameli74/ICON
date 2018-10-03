@@ -7,5 +7,6 @@
 int main(){
 	
 	sibzamini
+		sibe pokhte
 }
 
