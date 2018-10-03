@@ -5,8 +5,6 @@
 #include <time.h>
 
 int main(){
-	
-	sibzamini
-		sibe pokhte
-}
 
+	printf("hello");
+}
