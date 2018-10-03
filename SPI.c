@@ -6,5 +6,11 @@
 
 int main(){
 
-	printf("hello");
+	if (wiringPiSetupGpio())
+		printf("Couldn't initialize\n");
+	else
+		printf("Initialization was successful");
+
+
+	return 0;
 }
