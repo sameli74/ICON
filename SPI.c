@@ -6,14 +6,24 @@
 
 #define -1 SETUP_ERROR
 
+
 int main(){
 
-	if (wiringPiSetupGpio())
+	if (wiringPiSetupGpio()){
 		printf("Couldn't initialize\n");
-		else{
-			printf("Initialization was successful\n");
-			return
-		}
+		return SETUP_ERROR;
+	}
+	PinMode(12, OUTPUT);
+
+	while(1){
+		//delay() based on milisecond
+		delayMicroseconds(100);
+		digitalWrite(12, HIGH);
+		delayMicroseconds(100);
+		digitalWrite(12, LOW);
+	}
+
+
 
 
 	return 0;
