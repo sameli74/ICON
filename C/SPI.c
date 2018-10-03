@@ -4,7 +4,7 @@
 #include <wiringPi.h>
 #include <time.h>
 
-#define -1 SETUP_ERROR
+#define  SETUP_ERROR -1
 
 
 int main(){
