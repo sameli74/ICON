@@ -23,7 +23,7 @@ if(status==-1){
 }
 printf("Sending data...\n");
 while(1){
-	wiringPiSPIDataRW(CHANNEL, data, 1);
+	wiringPiwrite(CHANNEL, data, 1);
 	delayMicroseconds(10);
 }
 return 0;
