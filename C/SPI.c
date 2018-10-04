@@ -12,10 +12,10 @@ int main(){
 	int status;
 	unsigned char data[1];
 	data[0]= 0xAA;
-	if (wiringPiSetupGpio()){
-		printf("Couldn't initialize\n");
-		return SETUP_ERROR;
-	}
+	// if (wiringPiSetupGpio()){
+	// 	printf("Couldn't initialize\n");
+	// 	return SETUP_ERROR;
+	// }
 printf("Initializing...\n");
 status= wiringPiSPISetup(CHANNEL, SPEED);
 if(status==-1){
