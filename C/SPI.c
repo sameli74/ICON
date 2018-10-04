@@ -21,7 +21,7 @@ if(status==-1){
 	printf("something wrong happened!\n");
 	return SETUP_ERROR;
 }
-printf("Sending data...");
+printf("Sending data...\n");
 while(1){
 	wiringPiSPIDataRW(CHANNEL, data, 1);
 	delayMicroseconds(10);
