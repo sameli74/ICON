@@ -16,15 +16,15 @@ int main(){
 		printf("Couldn't initialize\n");
 		return SETUP_ERROR;
 	}
-printf("Initializing...\n");
 status= wiringPiSPISetup(CHANNEL, SPEED);
 if(status==-1){
 	printf("something wrong happened!\n");
 	return SETUP_ERROR;
 }
+printf("Sending data...");
 while(1){
 	wiringPiSPIDataRW(CHANNEL, data, 1);
-	delayMicroseconds(100);
+	delayMicroseconds(10);
 }
 return 0;
 
