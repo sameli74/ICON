@@ -23,7 +23,7 @@ if(status==-1){
 	return SETUP_ERROR;
 }
 while(1){
-	wiringPiSPIDataRW(CHANNEL, data);
+	wiringPiSPIDataRW(CHANNEL, data, 2);
 	delayMicroseconds(100);
 }
 return 0;
