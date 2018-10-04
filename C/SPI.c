@@ -10,7 +10,7 @@ const int SPEED=500000;
 
 int main(){
 	int status;
-	unsigned cahr data[1];
+	unsigned char data[1];
 	data[0]= 0xAA;
 	if (wiringPiSetupGpio()){
 		printf("Couldn't initialize\n");
