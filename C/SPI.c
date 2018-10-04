@@ -6,7 +6,7 @@
 
 #define  SETUP_ERROR -1
 const int CHANNEL=0;
-const int SPEED=500000;
+const int SPEED=100000;
 
 int main(){
 	int status;
