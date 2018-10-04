@@ -24,7 +24,7 @@ if(status==-1){
 printf("Sending data...\n");
 while(1){
 	wiringPiSPIDataRW(CHANNEL, data, 1);
-	delayMicroseconds(1000);
+	usleep(20);
 }
 return 0;
 
