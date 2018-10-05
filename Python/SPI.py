@@ -8,12 +8,13 @@ spi.max_speed_hz= 10000
 print("Sending information...")
 try:
     while True:
-        resp = spi.writebytes([0xAA])
-        #resp = spi.xfer2([0xAA])
-        #time.sleep(0.002)
+        #resp = spi.writebytes([0xAA])
+        resp = spi.xfer2([0xAA])
+        time.sleep(0.002)
         #print("message sent!")
 except KeyboardInterrupt:
     spi.close()
+    GPIO.cleanup()
     print("\nSending is done!")
 
 
