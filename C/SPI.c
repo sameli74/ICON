@@ -37,10 +37,11 @@ int main(){
 
 	//Setup SPI pins
 	bcm2835_spi_begin();
-
+	printf("1")
 	//Set CS pins polarity to low
 	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, 0);
 	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS1, 0);
+	printf("2")
 
 	//Set SPI clock speed
 	//	BCM2835_SPI_CLOCK_DIVIDER_65536 = 0,       ///< 65536 = 262.144us = 3.814697260kHz (total H+L clock period)
@@ -61,6 +62,7 @@ int main(){
 	//	BCM2835_SPI_CLOCK_DIVIDER_2     = 2,       ///< 2 = 8ns = 125MHz, fastest you can get
 	//	BCM2835_SPI_CLOCK_DIVIDER_1     = 1,       ///< 1 = 262.144us = 3.814697260kHz, same as 0/65536
 	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_1);
+	printf("3")
 
 	//Set SPI data mode
 	//	BCM2835_SPI_MODE0 = 0,  // CPOL = 0, CPHA = 0, Clock idle low, data is clocked in on rising edge, output data (change) on falling edge
@@ -68,13 +70,19 @@ int main(){
 	//	BCM2835_SPI_MODE2 = 2,  // CPOL = 1, CPHA = 0, Clock idle high, data is clocked in on falling edge, output data (change) on rising edge
 	//	BCM2835_SPI_MODE3 = 3,  // CPOL = 1, CPHA = 1, Clock idle high, data is clocked in on rising, edge output data (change) on falling edge
 	bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);		//(SPI_MODE_# | SPI_CS_HIGH)=Chip Select active high, (SPI_MODE_# | SPI_NO_CS)=1 device per bus no Chip Select
+	printf("4")
 
 	//Set with CS pin to use for next transfers
 	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);
+	printf("5")
 
 	//Transfer 1 byte
 	uint8_t data;
-	data = bcm2835_spi_transfer((uint8_t)0xAA);
+	while(1){
+		data = bcm2835_spi_transfer((uint8_t)0xAA);
+		delayMicroseconds(100);
+	}
+	printf("6")
 
 	//Transfer many bytes
 	// char data_buffer[10];
@@ -85,4 +93,6 @@ int main(){
 
 	//Return SPI pins to default inputs state
 	bcm2835_spi_end();
+	printf("7")
+
 }
