@@ -3,32 +3,32 @@
 #include <wiringPiSPI.h>
 #include <wiringPi.h>
 #include <time.h>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0d0bd8e36174ad4d3745bd1ee4f8de71f5fd6116
 
 #define  SETUP_ERROR -1
-const int CHANNEL=0;
-const int SPEED=500000;
+const int CHANNEL=1;
+const int SPEED=10000;
 
 int main(){
 	int status;
-	unsigned char data[1];
+	unsigned char data[100];
 	data[0]= 0xAA;
-	// if (wiringPiSetupGpio()){
-	// 	printf("Couldn't initialize\n");
-	// 	return SETUP_ERROR;
-	// }
-status= wiringPiSPISetup(CHANNEL, SPEED);
-if(status==-1){
-	printf("something wrong happened!\n");
-	return SETUP_ERROR;
-}
-printf("Sending data...\n");
-while(1){
-	wiringPiSPIDataRW(CHANNEL, data, 1);
-	delayMicroseconds(10);
-}
-return 0;
-
-
-
+//	 if (wiringPiSetupGpio()){
+//	 	printf("Couldn't initialize\n");
+//	 	return SETUP_ERROR;
+//	 }
+	wiringPiSetup();
+	status= wiringPiSPISetup(CHANNEL, SPEED);
+	if(status==-1){
+		printf("Initialization Failed!\n");
+		return SETUP_ERROR;
+	}
+	printf("Sending data...\n");
+	while(1){
+		wiringPiSPIDataRW(CHANNEL, data, 1);
+	}
 	return 0;
 }
