@@ -43,7 +43,7 @@ int main(){
 	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS1, 0);
 
 	//Set SPI clock speed
-	// BCM2835_SPI_CLOCK_DIVIDER_65536 = 0,       ///< 65536 = 262.144us = 3.814697260kHz (total H+L clock period)
+	//	BCM2835_SPI_CLOCK_DIVIDER_65536 = 0,       ///< 65536 = 262.144us = 3.814697260kHz (total H+L clock period)
 	//	BCM2835_SPI_CLOCK_DIVIDER_32768 = 32768,   ///< 32768 = 131.072us = 7.629394531kHz
 	//	BCM2835_SPI_CLOCK_DIVIDER_16384 = 16384,   ///< 16384 = 65.536us = 15.25878906kHz
 	//	BCM2835_SPI_CLOCK_DIVIDER_8192  = 8192,    ///< 8192 = 32.768us = 30/51757813kHz
@@ -59,11 +59,11 @@ int main(){
 	//	BCM2835_SPI_CLOCK_DIVIDER_8     = 8,       ///< 8 = 32ns = 31.25MHz
 	//	BCM2835_SPI_CLOCK_DIVIDER_4     = 4,       ///< 4 = 16ns = 62.5MHz
 	//	BCM2835_SPI_CLOCK_DIVIDER_2     = 2,       ///< 2 = 8ns = 125MHz, fastest you can get
-		BCM2835_SPI_CLOCK_DIVIDER_1= 1;       ///< 1 = 262.144us = 3.814697260kHz, same as 0/65536
+	//	BCM2835_SPI_CLOCK_DIVIDER_1     = 1,       ///< 1 = 262.144us = 3.814697260kHz, same as 0/65536
 	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_1);
 
 	//Set SPI data mode
-	BCM2835_SPI_MODE0 = 0;  // CPOL = 0, CPHA = 0, Clock idle low, data is clocked in on rising edge, output data (change) on falling edge
+	//	BCM2835_SPI_MODE0 = 0,  // CPOL = 0, CPHA = 0, Clock idle low, data is clocked in on rising edge, output data (change) on falling edge
 	//	BCM2835_SPI_MODE1 = 1,  // CPOL = 0, CPHA = 1, Clock idle low, data is clocked in on falling edge, output data (change) on rising edge
 	//	BCM2835_SPI_MODE2 = 2,  // CPOL = 1, CPHA = 0, Clock idle high, data is clocked in on falling edge, output data (change) on rising edge
 	//	BCM2835_SPI_MODE3 = 3,  // CPOL = 1, CPHA = 1, Clock idle high, data is clocked in on rising, edge output data (change) on falling edge
@@ -73,8 +73,8 @@ int main(){
 	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);
 
 	//Transfer 1 byte
-	uint8_t data=0xAA;
-	data = bcm2835_spi_transfer((uint8_t)0x55);
+	uint8_t data;
+	data = bcm2835_spi_transfer((uint8_t)0xAA);
 
 	//Transfer many bytes
 	// char data_buffer[10];
