@@ -4,7 +4,7 @@
 #include <wiringPi.h>
 #include <time.h>
 #include <bcm2835.h>
-
+#inlcude <iostream>
 
 #define  SETUP_ERROR -1
 const int CHANNEL=1;
