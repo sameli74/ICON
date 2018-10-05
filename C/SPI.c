@@ -59,7 +59,7 @@ int main(){
 	//	BCM2835_SPI_CLOCK_DIVIDER_8     = 8,       ///< 8 = 32ns = 31.25MHz
 	//	BCM2835_SPI_CLOCK_DIVIDER_4     = 4,       ///< 4 = 16ns = 62.5MHz
 	//	BCM2835_SPI_CLOCK_DIVIDER_2     = 2,       ///< 2 = 8ns = 125MHz, fastest you can get
-		BCM2835_SPI_CLOCK_DIVIDER_1     = 1;       ///< 1 = 262.144us = 3.814697260kHz, same as 0/65536
+		BCM2835_SPI_CLOCK_DIVIDER_1= 1;       ///< 1 = 262.144us = 3.814697260kHz, same as 0/65536
 	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_1);
 
 	//Set SPI data mode
