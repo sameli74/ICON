@@ -35,7 +35,7 @@ int main(){
 
 
 
-
+	std::cerr<<"0";
 	//Setup SPI pins
 	bcm2835_spi_begin();
 	std::cerr<<"1";
