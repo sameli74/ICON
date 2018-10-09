@@ -33,16 +33,21 @@ int main(){
 	// }
 	// return 0;
 
+	if (!bcm2835_init())
+	{
+		printf("bcm2835_init failed. Are you running as root??\n");
+		return 1;
+	}
+	if (!bcm2835_spi_begin())
+	{
+		printf("bcm2835_spi_begin failed. Are you running as root??\n");
+		return 1;
+	}
 
-
-	std::cerr<<"0";
-	//Setup SPI pins
-	bcm2835_spi_begin();
-	std::cerr<<"1";
 	//Set CS pins polarity to low
-	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, 0);
-	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS1, 0);
-	std::cerr<<"2";
+	// bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, 0);
+	// bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS1, 0);
+	// std::cerr<<"2";
 
 	//Set SPI clock speed
 	//	BCM2835_SPI_CLOCK_DIVIDER_65536 = 0,       ///< 65536 = 262.144us = 3.814697260kHz (total H+L clock period)
@@ -62,20 +67,26 @@ int main(){
 	//	BCM2835_SPI_CLOCK_DIVIDER_4     = 4,       ///< 4 = 16ns = 62.5MHz
 	//	BCM2835_SPI_CLOCK_DIVIDER_2     = 2,       ///< 2 = 8ns = 125MHz, fastest you can get
 	//	BCM2835_SPI_CLOCK_DIVIDER_1     = 1,       ///< 1 = 262.144us = 3.814697260kHz, same as 0/65536
-	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_1);
-	std::cerr<<"3";
+	// bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_1);
+	// std::cerr<<"3";
+
+	bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);      // The default
+	bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);                   // The default
+	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_65536); // The default
+	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      // The default
+	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // the default
 
 	//Set SPI data mode
 	//	BCM2835_SPI_MODE0 = 0,  // CPOL = 0, CPHA = 0, Clock idle low, data is clocked in on rising edge, output data (change) on falling edge
 	//	BCM2835_SPI_MODE1 = 1,  // CPOL = 0, CPHA = 1, Clock idle low, data is clocked in on falling edge, output data (change) on rising edge
 	//	BCM2835_SPI_MODE2 = 2,  // CPOL = 1, CPHA = 0, Clock idle high, data is clocked in on falling edge, output data (change) on rising edge
 	//	BCM2835_SPI_MODE3 = 3,  // CPOL = 1, CPHA = 1, Clock idle high, data is clocked in on rising, edge output data (change) on falling edge
-	bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);		//(SPI_MODE_# | SPI_CS_HIGH)=Chip Select active high, (SPI_MODE_# | SPI_NO_CS)=1 device per bus no Chip Select
-	std::cerr<<"4";
+	// bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);		//(SPI_MODE_# | SPI_CS_HIGH)=Chip Select active high, (SPI_MODE_# | SPI_NO_CS)=1 device per bus no Chip Select
+	// std::cerr<<"4";
 
 	//Set with CS pin to use for next transfers
-	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);
-	std::cerr<<"5";
+	// bcm2835_spi_chipSelect(BCM2835_SPI_CS0);
+	// std::cerr<<"5";
 
 	//Transfer 1 byte
 	uint8_t data;
@@ -94,6 +105,7 @@ int main(){
 
 	//Return SPI pins to default inputs state
 	bcm2835_spi_end();
-	std::cerr<<"7";
+	bcm2835_close();
+	return 0
 
 }
