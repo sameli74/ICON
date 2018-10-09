@@ -84,7 +84,7 @@ int main(){
 	// std::cerr<<"5";
 
 	//Transfer 1 byte
-	printf("sending data...")
+	printf("sending data...");
 	uint8_t data;
 	while(1){
 		data = bcm2835_spi_transfer((uint8_t)0xAA);
