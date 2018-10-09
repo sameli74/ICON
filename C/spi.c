@@ -84,12 +84,12 @@ int main(){
 	// std::cerr<<"5";
 
 	//Transfer 1 byte
+	printf("sending data...")
 	uint8_t data;
 	while(1){
 		data = bcm2835_spi_transfer((uint8_t)0xAA);
 		delayMicroseconds(100);
 	}
-	std::cerr<<"6";
 
 	//Transfer many bytes
 	// char data_buffer[10];
