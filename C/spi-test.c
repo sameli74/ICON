@@ -41,7 +41,7 @@ int main(int argc, char **argv)
     // Send a byte to the slave and simultaneously read a byte back from the slave
     // If you tie MISO to MOSI, you should read back what was sent
     //uint8_t send_data = 0xAA;
-    const char send_data[20]={0xAA, 0xAA,0xAA, 0xAA,
+    const char send_data[20]={0xF1, 0xCB,0xAA, 0xAA,
                       0xAA, 0xAA,0xAA, 0xAA,
                       0xAA, 0xAA,0xAA, 0xAA,
                       0xAA, 0xAA,0xAA, 0xAA,
