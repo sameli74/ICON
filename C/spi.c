@@ -32,14 +32,14 @@ static void pabort(const char *s)
 static const char *device = "/dev/spidev0.1";
 static uint8_t mode;
 static uint8_t bits = 8;
-static uint32_t speed = 500000;
+static uint32_t speed = 1000;
 static uint16_t delay;
 
 static void transfer(int fd)
 {
 	int ret;
 	uint8_t tx[] = {
-		0xFF,
+		0xFF,0x00,
 	};
 	uint8_t rx[ARRAY_SIZE(tx)] = {0, };
 	struct spi_ioc_transfer tr = {
