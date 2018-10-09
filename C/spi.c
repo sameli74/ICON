@@ -39,7 +39,7 @@ static void transfer(int fd)
 {
 	int ret;
 	uint8_t tx[] = {
-		0xAAAA,
+		0b10101010,
 	};
 	uint8_t rx[ARRAY_SIZE(tx)] = {0, };
 	struct spi_ioc_transfer tr = {
