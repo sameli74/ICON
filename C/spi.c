@@ -32,12 +32,14 @@ int main(){
 	// 	delay(1);
 	// }
 	// return 0;
-
+	std::cerr<<"0";
 	if (!bcm2835_init()){
 		printf("bcm2835_init failed. Are you running as root??\n");
 		return 1;
 	}
+	std::cerr<<"1";
 	bcm2835_spi_begin();
+	std::cerr<<"2";
 
 	//Set CS pins polarity to low
 	// bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, 0);
@@ -65,11 +67,17 @@ int main(){
 	// bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_1);
 	// std::cerr<<"3";
 
+	std::cerr<<"3";
 	bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);      // The default
+	std::cerr<<"4";
 	bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);                   // The default
+	std::cerr<<"5";
 	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_65536); // The default
+	std::cerr<<"6";
 	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      // The default
+	std::cerr<<"7";
 	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // the default
+	std::cerr<<"8";
 
 	//Set SPI data mode
 	//	BCM2835_SPI_MODE0 = 0,  // CPOL = 0, CPHA = 0, Clock idle low, data is clocked in on rising edge, output data (change) on falling edge
@@ -85,6 +93,7 @@ int main(){
 
 	//Transfer 1 byte
 	printf("sending data...");
+	std::cerr<<"9";
 	uint8_t data;
 	while(1){
 		data = bcm2835_spi_transfer((uint8_t)0xAA);
