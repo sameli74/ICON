@@ -25,7 +25,7 @@ int main(){
 	}
 	printf("Sending data...\n");
 	while(1){
-		wiringPiSPIDataRW(CHANNEL, data, 1);
+		wiringPiSPIDataRW(CHANNEL, data, 0);
 	}
 	return 0;
 
