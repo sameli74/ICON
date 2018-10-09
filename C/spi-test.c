@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 
     // Send a byte to the slave and simultaneously read a byte back from the slave
     // If you tie MISO to MOSI, you should read back what was sent
-    uint8_t send_data = 0x23;
+    uint8_t send_data = 0xAA;
     while(1){
       bcm2835_spi_write(send_data);
     }
