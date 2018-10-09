@@ -31,8 +31,12 @@ static void pabort(const char *s)
 
 static const char *device = "/dev/spidev0.1";
 static uint8_t mode;
+//fixed size for bits_per_word
 static uint8_t bits = 8;
+//for speeds above -> there are some distortions
 static uint32_t speed = 500000;
+//delay between words // you can adjust good output using delay and speed
+//but it could be pointless
 static uint16_t delay;
 
 static void transfer(int fd)
