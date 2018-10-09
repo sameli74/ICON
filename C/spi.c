@@ -3,7 +3,7 @@
 #include <wiringPiSPI.h>
 #include <wiringPi.h>
 #include <time.h>
-
+#include <linux/spi/spidev.h>
 
 #define  SETUP_ERROR -1
 const int CHANNEL=1;
