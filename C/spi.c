@@ -229,6 +229,7 @@ int main(){
 	printf("Sending data...\n");
 	while(1){
 		wiringPiSPIDataRW(CHANNEL, &data, 1);
+		printf("data: %c\n", data);
 	}
 	return 0;
 
