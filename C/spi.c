@@ -34,7 +34,7 @@ static uint8_t mode;
 //fixed size for bits_per_word
 static uint8_t bits = 8;
 //for speeds above -> there are some distortions
-static uint32_t speed = 500000;
+static uint32_t speed = 3906250;
 //delay between words // you can adjust good output using delay and speed
 //but it could be pointless
 static uint16_t delay;
@@ -229,7 +229,6 @@ int main(){
 	int status;
 	unsigned char data[7];
 	data[0]= 0x55;
-	//wiringPiSetupSys();
 	//wiringPiSetup();
 	wiringPiSPISetup(CHANNEL, SPEED);
 	printf("Sending data...\n");
