@@ -37,7 +37,7 @@ static uint8_t bits = 8;
 static uint32_t speed = 3906250;
 //delay between words // you can adjust good output using delay and speed
 //but it could be pointless
-static uint16_t delay;
+static uint16_t delay=0;
 
 static void transfer(int fd)
 {
