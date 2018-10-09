@@ -18,7 +18,7 @@ int main(){
 	// 	printf("Couldn't initialize\n");
 	// 	return SETUP_ERROR;
 	// }
-	wiringPiSetup();
+	//wiringPiSetup();
 	if(wiringPiSPISetup(CHANNEL, SPEED)==-1){
 		printf("Initialization Failed!\n");
 		return SETUP_ERROR;
