@@ -4,6 +4,7 @@
 #include <wiringPi.h>
 #include <time.h>
 #include <bcm2835.h>
+#include <iostream>
 
 
 #define  SETUP_ERROR -1
@@ -31,6 +32,7 @@ int main(){
 	// 	delay(1);
 	// }
 	// return 0;
+
 	if (!bcm2835_init()){
 		printf("bcm2835_init failed. Are you running as root??\n");
 		return 1;
@@ -82,18 +84,12 @@ int main(){
 	// std::cerr<<"5";
 
 	//Transfer 1 byte
-	printf("sending data...");
-	uint8_t send_data = 0x23;
-	uint8_t read_data = bcm2835_spi_transfer(send_data);
-	printf("Sent to SPI: 0x%02X. Read back from SPI: 0x%02X.\n", send_data, read_data);
-	if (send_data != read_data)
-		printf("Do you have the loopback from MOSI to MISO connected?\n");
-	// std::cerr<<"9";
-	// uint8_t data;
-	// while(1){
-	// 	data = bcm2835_spi_transfer((uint8_t)0xAA);
-	// 	delayMicroseconds(100);
-	// }
+	printf("sending data...")
+	uint8_t data;
+	while(1){
+		data = bcm2835_spi_transfer((uint8_t)0xAA);
+		delayMicroseconds(100);
+	}
 
 	//Transfer many bytes
 	// char data_buffer[10];
