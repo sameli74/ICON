@@ -223,14 +223,14 @@ int main(){
 
 	int status;
 
+	unsigned char data;
 	//data[0]= 0xAA;
 	//wiringPiSetup();
 	wiringPiSPISetup(CHANNEL, SPEED);
 	printf("Sending data...\n");
 	while(1){
-		unsigned char data = 0xAA;
+		data = 0xAA;
 		wiringPiSPIDataRW(CHANNEL, &data, 1);
-		printf("data: %c\n", data);
 	}
 	return 0;
 
