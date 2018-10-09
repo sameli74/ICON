@@ -4,13 +4,13 @@ import time
 #import wiringpi as wp
 spi = spidev.SpiDev()
 spi.open(0,0)
-spi.max_speed_hz= 10000
+spi.max_speed_hz= 1953000
 print("Sending information...")
 try:
     while True:
         #resp = spi.writebytes([0xAA])
         resp = spi.xfer2([0xAA])
-        time.sleep(0.002)
+        #time.sleep(0.002)
         #print("message sent!")
 except KeyboardInterrupt:
     spi.close()
