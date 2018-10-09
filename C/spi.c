@@ -232,22 +232,12 @@ int main(){
 	unsigned char data[7];
 	data[0]= 0x55;
 	//wiringPiSetupSys();
-	// if (wiringPiSetupGpio()){
-	// 	printf("Couldn't initialize\n");
-	// 	return SETUP_ERROR;
-	// }
 	//wiringPiSetup();
-	if(wiringPiSPISetup(CHANNEL, SPEED)==-1){
-		printf("Initialization Failed!\n");
-		return SETUP_ERROR;
-	}
+	wiringPiSPISetup(CHANNEL, SPEED);
 	printf("Sending data...\n");
 	while(1){
-		wiringPiSPIDataRW(CHANNEL, data, 0);
+		wiringPiSPIDataRW(CHANNEL, data, 1);
 	}
-	return 0;
-
-
 	return 0;
 
 }
