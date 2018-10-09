@@ -217,7 +217,7 @@
 
 #define  SETUP_ERROR -1
 const int CHANNEL=1;
-const int SPEED=500000;
+const int SPEED=10000000;
 
 int main(){
 
