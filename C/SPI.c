@@ -37,7 +37,7 @@ int main(){
 
 	std::cerr<<"0";
 	//Setup SPI pins
-	bcm2835_spi_begin();
+	cerr<< bcm2835_spi_begin();
 	std::cerr<<"1";
 	//Set CS pins polarity to low
 	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, 0);
